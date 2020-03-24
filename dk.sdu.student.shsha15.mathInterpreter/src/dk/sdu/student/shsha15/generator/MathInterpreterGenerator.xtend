@@ -63,10 +63,10 @@ override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorCo
 	
 	def CharSequence displayOperation(Expression expression) {
 		switch expression {
-		Plus: '''+'''
-		Minus: '''-'''
-		Multiply: '''*'''
-		Divide: '''/'''
+			Plus: '''+'''
+			Minus: '''-'''
+			Multiply: '''*'''
+			Divide: '''/'''
 		}
 	}	
 }
