@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.sdu.dk/student/shsha15/MathInterpreter"
+			class = "dk.sdu.student.shsha15.mathInterpreter.MathInterpreterPackage"
+			genModel = "model/generated/MathInterpreter.genmodel" />
+	</extension>
+</plugin>

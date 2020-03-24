@@ -1,0 +1,38 @@
+grammar dk.sdu.student.shsha15.MathInterpreter with org.eclipse.xtext.common.Terminals
+
+generate mathInterpreter "http://www.sdu.dk/student/shsha15/MathInterpreter"
+
+MathExp:
+	'result' 'is' exp=Exp
+;
+
+Exp returns Expression:
+	PlusMinusExp
+;
+	
+PlusMinusExp returns Expression: 
+	MultiplyDivideExp ({Exp.left=current} operator=PlusMinus right=MultiplyDivideExp)*
+;
+
+MultiplyDivideExp returns Expression:
+	Primary ({Exp.left=current} operator=MultiplyDivide right=Primary)	
+;
+
+Primary returns Expression:
+	Number | Parenthesis
+;
+PlusMinus returns Expression: 
+	{Plus} '+' | {Minus} '-'
+;
+
+MultiplyDivide returns Expression: 
+	{Multiply} '*' | {Divide} '/' 
+;
+
+Number returns Expression:
+	{Num} value=INT
+;
+
+Parenthesis returns Expression:
+	'(' exp=Exp ')'
+;
